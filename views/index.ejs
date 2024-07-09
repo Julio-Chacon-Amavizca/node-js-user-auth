@@ -84,9 +84,9 @@
             </div>
             <% } %>
 
-                <% if (typeof username==='undefined' ) {%>
+                <% if (typeof username==='undefined' ) { %>
                     <div class="form-container">
-                        <form class="login-form">
+                        <form id="login-form">
                             <h2>Login</h2>
                             <label for="login-username">Username</label>
                             <input type="text" id="login-username" name="username" required>
@@ -100,7 +100,7 @@
                     </div>
 
                     <div class="form-container">
-                        <form class="register-form">
+                        <form id="register-form">
                             <h2>Register</h2>
                             <label for="register-username">Username</label>
                             <input type="text" id="register-username" name="username" required>
@@ -126,7 +126,7 @@
 
         const logoutButton = $('#close-session')
 
-        loginForm?.addEventListener('submit', (e) => {
+        loginForm?.addEventListener('submit', e => {
             e.preventDefault();
             const username = $('#login-username').value
             const password = $('#login-password').value
@@ -142,21 +142,22 @@
                 })
             })
                 .then(res => {
+                    console.log(res)
                     if (res.ok) {
-                        loginSpan.innerText = 'Login correcto'
+                        loginSpan.innerText = 'Login correcto... Entrando'
                         loginSpan.style.color = 'green'
                         setTimeout(() => {
                             window.location.href = '/protected'
                         }, 2000)
                     } else {
-                        loginSpan.innerText = 'Login incorrecto'
+                        loginSpan.innerText = 'Error al iniciar sesion'
                         loginSpan.style.color = 'red'
                     }
                 })
 
         });
 
-        registerForm?.addEventListener('submit', (e) => {
+        registerForm?.addEventListener('submit', e => {
             e.preventDefault();
             const username = $('#register-username').value
             const password = $('#register-password').value
@@ -180,7 +181,7 @@
                 .then(res => {
                     console.log(res)
                     if (res.ok) {
-                        registerSpan.innerText = 'Usuario registrado correctamente'
+                        registerSpan.innerText = 'Usuario registrado correctamente. Entrando...'
                         registerSpan.style.color = 'green'
                         setTimeout(() => {
                             window.location.href = '/protected'
@@ -206,6 +207,7 @@
                     window.location.href = '/'
                 })
         })
+
     </script>
 </body>
 

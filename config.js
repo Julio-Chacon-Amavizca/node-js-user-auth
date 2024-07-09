@@ -1,6 +1,7 @@
 export const
   {
     PORT = 3000,
-    SALT_ROUNDS = 10
+    SALT_ROUNDS = 10,
+    SECRET_JWT = 'ESTA-ES-UNA-PALABRA-SECRETA-QUE-DEBERIA-ESTAR-EN-UN-ARCHIVO-DE-ENV'
 
   } = process.env

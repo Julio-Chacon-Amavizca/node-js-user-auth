@@ -3,7 +3,7 @@
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "/views/index.ejs"
+            "destination": "/views/index"
         }
     ]
 }
